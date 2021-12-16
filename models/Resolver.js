@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const resolverSchema = new Schema(
     {
-    resolvedBy: { type: String, required: [true, 'Name is required']}
+    ResolvedBy: { type: String, required: [true, 'Name is required']}
 }
 
 )

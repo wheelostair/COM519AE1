@@ -74,6 +74,8 @@ app.get("/", (req, res) => {
 
 app.get("/resolvers", resolverController.list);
 
+app.get("/incidents", resolverController.list);
+
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 });

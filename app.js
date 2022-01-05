@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 //const chalk = require("chalk");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
+const User = require("./models/User");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -25,6 +26,8 @@ mongoose.connection.on("error", (err) => {
  * Controllers (route handlers).
  */
 const resolverController = require("./controllers/resolver");
+const userController = require("./controllers/user");
+const num_incidentController = require("./controllers/num_incident");
 
 /***
  * We are applying our middlewear
@@ -72,10 +75,37 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "index.ejs"));
 });
 
+app.get("/create-resolver", authMiddleware, (req, res) => {
+    res.render("create-resolver", { errors: {} });
+});
+
+app.post("/create-resolver", resolverController.create);
+
 app.get("/resolvers", resolverController.list);
+app.get("/resolvers/delete/:id", resolverController.delete);
+app.get("/resolvers/update/:id", resolverController.edit);
+app.post("/resolvers/update/:id", resolverController.update);
 
 app.get("/incidents", resolverController.list);
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 });
+
+app.get("/join", (req, res) => {
+    res.render('create-user', { errors: {} })
+});
+
+app.post("/join", userController.create);
+app.get("/login", (req, res) => {
+    res.render('login-user', { errors: {} })
+});
+app.post("/login", userController.login);
+
+app.get("/logout", async (req, res) => {
+    req.session.destroy();
+    global.user = false;
+    res.redirect('/');
+})
+
+app.get("/num_incidents", num_incidentController.list);

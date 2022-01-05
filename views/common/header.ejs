@@ -8,11 +8,11 @@
         </a>
         <a class="nav-link" href="/resolvers"> Resolvers</a>
         <a class="nav-link" href="/incidents"> Incidents</a>
-        <a class="nav-link" href="#"> Placeholder</a>
+        <a class="nav-link" href="/num_incidents"> Total Incidents</a>
 
-        <!-- <% if(user) { %>
-          <a class="nav-link" href="saved-tastings"> Search Tastings</a>
-          <a class="nav-link" href="create-tasting"> Write a Review </a>
+        <% if(user) { %>
+          <!-- <a class="nav-link" href="saved-tastings"> Search Tastings</a>
+          <a class="nav-link" href="create-tasting"> Write a Review </a> -->
           <a class="nav-link" href="logout">
             <%= user.email %> (Logout)
           </a>
@@ -20,7 +20,7 @@
             <% if(!user) { %>
               <a class="nav-link" href="login"> Login </a>
               <a class="nav-link" href="join"> Register </a>
-              <% } %> -->
+              <% } %>
       </div>
     </div>
   </nav>

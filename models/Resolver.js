@@ -3,8 +3,8 @@ const { Schema } = mongoose;
 
 const resolverSchema = new Schema(
     {
-    ResolvedBy: { type: String, required: [true, 'Name is required']}
-}
+        Name: { type: String, required: [true, 'Name is required'] }
+    }
 
 )
 module.exports = mongoose.model("Resolver", resolverSchema);

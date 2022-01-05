@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-    <title>IOW ICT Incidents</title>
+    <title>IOW ICT Total Incidents</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/" />
 
@@ -29,10 +29,9 @@
 
                 <% } %>
 
-                    <h1 class="text-justify"> Resolvers </h1>
+                    <h1 class="text-justify"> Total Incidents </h1>
                     <div class="col-md-12 col-md-offset-2  justify-content-center">
-                        <a role="button" class="btn btn-primary btn-xs" href="/create-resolver">Create a new
-                            resolver</a>
+
 
 
                     </div>
@@ -44,27 +43,26 @@
                                 <tr>
 
                                     <th>Name</th>
+                                    <th>Total number of Incidents</th>
 
 
                                 </tr>
-                                <% resolvers.forEach(resolver=> {
+                                <% num_incidents.forEach(_id=> {
 
                                     %>
 
                                     <tr>
 
                                         <td>
-                                            <%= resolver %>
-                                                
+                                            <%= _id.Name %>
+
+                                        </td>
+                                        <td>
+                                            <%= _id.num_incidents %>
+
                                         </td>
 
-                                        <td class="text-center"><a class='btn btn-info btn-xs'
-                                                href="/resolvers/update/<%= resolver.id %>"><span
-                                                    class="glyphicon glyphicon-edit"></span> Edit</a>
-                                            <a href="/resolvers/delete/<%= resolver.id %>"
-                                                class="btn btn-danger btn-xs"><span
-                                                    class="glyphicon glyphicon-remove"></span> Del</a>
-                                        </td>
+
 
                                         <% }); %>
                             </thead>

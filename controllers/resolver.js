@@ -53,7 +53,7 @@ exports.update = async (req, res) => {
 exports.create = async (req, res) => {
 
     try {
-        const resolver = new Resolver({ name: req.body.name});
+        const resolver = new Resolver({ name: req.body.name });
         await resolver.save();
         res.redirect('/resolvers/?message=resolver has been created')
     } catch (e) {

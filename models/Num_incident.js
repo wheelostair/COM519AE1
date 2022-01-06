@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { StringDecoder } = require("string_decoder");
 const { Schema } = mongoose;
 
 const num_incidentSchema = new Schema(
@@ -7,7 +8,7 @@ const num_incidentSchema = new Schema(
       type: String
     },
     
-    Name: { type: String, required: [true, 'Name is required'] },
+    name: { type: String},
 
     num_incidents: { type: Number}
   }

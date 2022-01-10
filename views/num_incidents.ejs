@@ -38,6 +38,8 @@
 
                     <div class="col-md-12 col-md-offset-2">
 
+                        
+
                         <table class="table table-striped custab">
                             <thead>
                                 <tr>
@@ -47,19 +49,20 @@
 
 
                                 </tr>
-                                <% num_incidents.forEach(_id=> {
+                                <% num_incidents.forEach(num_incident=> {
 
                                     %>
 
                                     <tr>
 
                                         <td>
-                                            <%= _id %>
+                                            <%= num_incident.name %>
 
                                         </td>
                                         <td>
-                                            <%= _id.num_incidents %>
-
+                                            <%= num_incident.num_incidents %>
+                                                
+                                                    <%=num_incident.foo %>
                                         </td>
 
 

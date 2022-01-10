@@ -7,12 +7,12 @@ const num_incidentSchema = new Schema(
     id_: {
       type: String
     },
-    
-    name: { type: String},
 
-    num_incidents: { type: Number}
+    name: { type: String },
+
+    num_incidents: { type: Number }
   }
-  
+
 );
 
 // num_incidentSchema.index({ '$**': 'text' });

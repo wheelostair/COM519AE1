@@ -3,10 +3,10 @@ const { Schema } = mongoose;
 
 const resolverSchema = new Schema(
     {
-        Name: { type: String }
+        name: { type: String }
     },
     {
-        versionKey: false // You should be aware of the outcome after set to false
+        versionKey: false 
     }
 
 )

@@ -7,7 +7,7 @@ const incidentSchema = new Schema(
         CreatedDate: { type: String },
         FirstCallResolution: { type: Boolean },
         IncidentNumber: { type: Number },
-        ResolvedBy: { type: String },
+        Name: { type: String },
         ResolvedDate: { type: String },
         Subject: { type: String },
     }

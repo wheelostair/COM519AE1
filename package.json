@@ -1,7 +1,7 @@
 {
   "name": "com519ae1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Advanced Databases COM519AE1 Assessment",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -10,9 +10,9 @@
     "chalk": "^5.0.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "express-session": "^1.17.2",
-    "mongodb": "^4.2.1",
+    "mongodb": "^4.3.0",
     "mongoose": "^6.1.2",
     "node": "^17.2.0",
     "nodemon": "^2.0.15"
@@ -30,6 +30,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelostair/COM519AE1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wheelostair/COM519AE1/issues"
+  },
+  "homepage": "https://github.com/wheelostair/COM519AE1#readme"
 }
-

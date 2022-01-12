@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-    <title>IOW ICT Total Incidents</title>
+    <title>IOW ICT Total Calls reolved at First point of contact</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/" />
 
@@ -29,7 +29,7 @@
 
                 <% } %>
 
-                    <h1 class="text-justify"> Total Incidents </h1>
+                    <h1 class="text-justify"> Total Incidents resolved at first point of contact </h1>
                     <div class="col-md-12 col-md-offset-2  justify-content-center">
 
 
@@ -45,22 +45,22 @@
                                 <tr>
 
                                     <th>Name</th>
-                                    <th>Total number of Incidents Resolved</th>
+                                    <th>Total number of Incidents resolved at FPOC</th>
 
 
                                 </tr>
-                                <% num_incidents.forEach(num_incident=> {
+                                <% first_calls.forEach(first_call=> {
 
                                     %>
 
                                     <tr>
 
                                         <td>
-                                            <%= num_incident.name %>
+                                            <%= first_call.name %>
                                             
                                         </td>
                                         <td>
-                                            <%= num_incident.num_incidents %>
+                                            <%= first_call.first_call %>
 
 
                                         </td>

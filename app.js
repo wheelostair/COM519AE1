@@ -28,6 +28,9 @@ mongoose.connection.on("error", (err) => {
 const resolverController = require("./controllers/resolver");
 const userController = require("./controllers/user");
 const num_incidentController = require("./controllers/num_incident");
+const incidentController = require("./controllers/incident");
+const first_callController = require("./controllers/first_call");
+const incidentApiController = require("./controllers/api/incident");
 
 /***
  * We are applying our middlewear
@@ -86,7 +89,7 @@ app.get("/resolvers/delete/:id", resolverController.delete);
 app.get("/resolvers/update/:id", resolverController.edit);
 app.post("/resolvers/update/:id", resolverController.update);
 
-app.get("/incidents", resolverController.list);
+app.get("/incidents", incidentController.list);
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
@@ -109,3 +112,9 @@ app.get("/logout", async (req, res) => {
 })
 
 app.get("/num_incidents", num_incidentController.list);
+
+app.get("/first_call", first_callController.list);
+
+app.get('/search-incidents', (req, res) => res.render('search-incidents'));
+app.get("/api/search-incidents", incidentApiController.list)
+app.get("/api/searchincidents", incidentApiController.list);

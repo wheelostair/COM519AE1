@@ -17,7 +17,12 @@
     "node": "^17.2.0",
     "nodemon": "^2.0.15"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
@@ -27,3 +32,4 @@
   "author": "",
   "license": "ISC"
 }
+

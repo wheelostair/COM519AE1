@@ -12,5 +12,7 @@ const incidentSchema = new Schema(
         Subject: { type: String },
     }
 
-)
+);
+
+incidentSchema.index({ '$**': 'text' });
 module.exports = mongoose.model("Incident", incidentSchema);

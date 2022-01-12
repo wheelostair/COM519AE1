@@ -30,7 +30,7 @@ exports.edit = async (req, res) => {
     const id = req.params.id;
     try {
         const resolver = await Resolver.findById(id);
-        res.render('update-resolver', { resolvers: resolvers, id: id });
+        res.render('update-resolver', { resolver: resolver, id: id });
     } catch (e) {
         res.status(404).send({
             message: `could find resolver ${id}.`,
@@ -42,7 +42,7 @@ exports.update = async (req, res) => {
     const id = req.params.id;
     try {
         const resolver = await Resolver.updateOne({ _id: id }, req.body);
-        res.redirect('/resolvers/?message=taster has been updated');
+        res.redirect('/resolvers/?message=resolver has been updated');
     } catch (e) {
         res.status(404).send({
             message: `could find resolver ${id}.`,

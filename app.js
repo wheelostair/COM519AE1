@@ -63,6 +63,8 @@ const authMiddleware = async (req, res, next) => {
 //     res.render("index");
 // });
 
+// Change
+
 app.get("/", (req, res) => {
     res.render("index")
 });

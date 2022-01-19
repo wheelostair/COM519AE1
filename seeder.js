@@ -6,10 +6,10 @@ const path = require("path");
 const { MONGODB_URI } = process.env;
 
 
-// const client = new MongoClient(MONGODB_URI);
+const client = new MongoClient(MONGODB_URI);
 
-const uri = "mongodb://127.0.0.1:27017/incident"
-const client = new MongoClient(uri);
+// const uri = "mongodb://127.0.0.1:27017/incident"
+// const client = new MongoClient(uri);
 
 async function main() {
     try {

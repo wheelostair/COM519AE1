@@ -16,7 +16,8 @@
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.2",
     "node": "^17.2.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "seeder": "^0.2.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"

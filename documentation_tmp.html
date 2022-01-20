@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>documentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="com519ae1">COM519AE1</h1>
+<p>Advanced Databases COM519AE1 Assessment</p>
+<h1 id="alastair-cox">Alastair Cox</h1>
+<h2 id="web-application">Web Application</h2>
+<p>https://ancient-lowlands-53604.herokuapp.com/</p>
+<h2 id="github-repository">Github Repository</h2>
+<p>https://github.com/wheelostair/COM519AE1</p>
+<div style="page-break-after: always"></div>
+<h1 id="introduction">Introduction</h1>
+<p>I was asked to solve a problem in my work or home life, by building a data-driven full stack web-application.
+I work for the Isle of Wight council in the ICT team. Each week our line manager is supposed to provide us with a rundown of the number of incidents and service requests we have each completed, and the number of those we have completed on first point of contact.
+However, most weeks the line manager hasn't had the time to collate the information, or the information is presented on a hard to read spreadsheet format.</p>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/numbers.png" alt="Incident_numbers"></p>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/calls.png" alt="Incident_calls"></p>
+<p>The info above was hard to understand, not very easy to look at and was a struggle each week for the line manager to complete.
+I Thought it would be a great idea to create a web app that could show these numbers and possibly more automatically. Saving the line manager time and making the information more accessible.</p>
+<div style="page-break-after: always"></div>
+<h1 id="system-overview">System Overview</h1>
+<p>The database is downloaded from the Service management System (SMS) that we have at the council. It is converted from a simple spreadsheet to JSON format.</p>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/spreadsheet.png" alt="spreadsheet"></p>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/json.png" alt="json"></p>
+<p>The data is then aggregated and arranged using a seeder which creates collections of documents which can be used to populate the web app.
+The web app is broken down into a home page, an area to see all the resolvers which can be edited, a list of all the incidents, a list of incidents resolved by each member of the team, a list of all incidents completed at first point of contact,
+an area to search through the incidents and an area to login and register for the web app.</p>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/MVC.png" alt="MVC"></p>
+<div style="page-break-after: always"></div>
+<h2 id="basic-layout-design-for-web-app">Basic layout design for web app</h2>
+<h3 id="home-page">Home Page</h3>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/Wireframe.png" alt="Wireframe"></p>
+<h3 id="total-incidents-page">Total Incidents Page</h3>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/total_incidents.png" alt="Incidents"></p>
+<h3 id="final-product">Final Product</h3>
+<p><img src="file:///c:/Com519AE1/COM519AE1/images/home.png" alt="Home"></p>
+<div style="page-break-after: always"></div>
+<h1 id="key-design-decisions">Key Design Decisions</h1>
+<h2 id="database-design">Database Design</h2>
+<p>The Database is broken down into five main areas</p>
+<p>1 Incidents
+2 Resolvers
+3 Number of Incidents
+4 First Calls
+5 Users</p>
+<h3 id="incidents">Incidents</h3>
+<p>The documents in this collection have all the data collected from the SMS. IncidentNumber, CreatedDate, Subject, FirstCallResolution, ResolvedDate and Name.
+This is the set of data which is aggregated using the seeder to create the further collections. This collection populates the incidents web page and the search page.</p>
+<h3 id="resolvers">Resolvers</h3>
+<p>The documents in this collection just have an ID and the user’s name. This collection can be updated, added to and deleted. This populates the Resolvers web page.</p>
+<h3 id="number-of-incidents">Number of incidents</h3>
+<p>The documents in this collection have an ID, Name and the sum of all incidents completed by that employee. This is used to populate the num_incidents web page and replaces the need for the spreadsheet shown in the introduction.</p>
+<h3 id="first-calls">First Calls</h3>
+<p>The documents in this collection have an ID, Name and the sum of all the incidents completed at first point of contact for that employee. It is used to populate the first_call web page and also replaces the need for another spreadsheet.</p>
+<h3 id="users">Users</h3>
+<p>The final collection is created when a user creates a login for the web page. You must login to create a new resolver. The documents in this collection have an ID, email, and Password (which is saved hashed). these can be used to login to the web page and create a new resolver if needed.</p>
+<h2 id="security--scalability">Security &amp; Scalability</h2>
+<p>The application currently shows all of the incidents ever created on the SMS and has over 15,000 documents. However, if used to replace the team statistic spreadsheets shown above only the data from the previous week or month would need to be used.
+It wouldn’t be too difficult to re-create this system using a different dataset to include the service requests from the SMS too.
+The web page could be changed to include a date area where only certain data between two dates were shown.</p>
+<p>The system is secure as to make edits you need to register and login to the web page. The passwords created by the users are saved in a hashed format and therefore are much harder to crack.</p>
+<div style="page-break-after: always"></div>
+<h1 id="conclusion--reflection">Conclusion &amp; Reflection</h1>
+<p>The web page designed fulfils the brief of solving a problem in the workplace, by creating an easy to view, automatic version of the poorly laid out spreadsheet which we were sometimes provided. It is very simple in design but could be improved in the future to include further data sets, including an area to view service requests, a section to search by date, how many calls have been opened vs closed and a percentage of total calls which have been closed at FPOC.
+There are some areas of the web page which i have not finished, including a drop-down list of all the resolvers, which i was attempting to use to navigate to a page which would show all the incidents resolved by that employee, but i was unable to finish this.
+On the search area i was trying to create an area where each user who logged in could save incidents so that they could see them again in the future at a glance. But this is also unfinished. If i were to add these features in the future i think that this could be a very useful tool for my team and could be used regularly to save time and provide us with up to date statistics.</p>
+<p>At first i struggled quite badly with trying to create the collections, i solved this by including a seeder. I also struggled with hosting the database on a cloud server and hosting the webpage, but with trial and error i finally managed to host these.
+I recognise that the design is simple and could be improved, but i am happy with the functionality and believe that i can use the skills learnt completing this assessment in the future, to further my career.</p>
+
+</body>
+</html>
